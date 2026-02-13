@@ -84,6 +84,7 @@ class VectorControllerTest {
                 .content("{\"vector1\": [1,2,3], \"vector2\": [4,5,6]}"))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.scalarResult").value(32.0));
+            
     }
 
     @Test
