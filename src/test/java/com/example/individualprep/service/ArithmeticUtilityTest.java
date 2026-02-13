@@ -16,24 +16,22 @@ class ArithmeticUtilityTest {
     }
 
     // --- add() tests ---
-    // Note: add() is currently a TODO stub returning 0.0
     @Test
     void testAddReturnsResult() {
         double result = arithmeticUtility.add(2.0, 3.0);
-        // Stub returns 0.0; update expected value once implemented
-        assertEquals(0.0, result);
+        assertEquals(5.0, result);
     }
 
     @Test
     void testAddWithNegativeNumbers() {
         double result = arithmeticUtility.add(-2.0, -3.0);
-        assertEquals(0.0, result);
+        assertEquals(-5.0, result);
     }
 
     @Test
     void testAddWithZero() {
         double result = arithmeticUtility.add(0.0, 3.0);
-        assertEquals(0.0, result);
+        assertEquals(3.0, result);
     }
 
     // --- subtract() tests ---
