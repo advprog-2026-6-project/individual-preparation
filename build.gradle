@@ -3,6 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '4.0.2'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'checkstyle'
+	id "org.sonarqube" version "7.1.0.6387"
 }
 
 group = 'com.example'
@@ -39,4 +40,11 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property "sonar.organization", "advprog-2026-6-project"
+        property "sonar.projectKey", "advprog-2026-6-project_individual-preparation"
+    }
 }

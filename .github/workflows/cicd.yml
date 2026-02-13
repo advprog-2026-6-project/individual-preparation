@@ -62,9 +62,7 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Run sonarcloud scanner
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          organization: advprog-2026-6-project
-          token: ${{ secrets.SONAR_TOKEN }}
-          projectKey: advprog-2026-6-project_individual-preparation
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew build sonar --info
