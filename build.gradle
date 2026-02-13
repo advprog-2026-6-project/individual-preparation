@@ -2,6 +2,8 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '4.0.2'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'checkstyle'
+	id "org.sonarqube" version "7.1.0.6387"
 }
 
 group = 'com.example'
@@ -11,6 +13,18 @@ description = 'Individual preparation for the Advanced Programming course at the
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+checkstyle {
+	toolVersion = '10.12.0'
+	configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+}
+
+tasks.withType(Checkstyle) {
+	reports {
+		xml.required = false
+		html.required = true
 	}
 }
 
@@ -26,4 +40,11 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+sonar {
+    properties {
+        property "sonar.organization", "advprog-2026-6-project"
+        property "sonar.projectKey", "advprog-2026-6-project_individual-preparation"
+    }
 }
