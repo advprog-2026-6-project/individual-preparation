@@ -23,11 +23,12 @@ jacocoTestReport {
 	}
 }
 
-sonar {
+ssonar {
 	properties {
-		property "sonar.projectKey", "user_project_key_kamu"
-		property "sonar.organization", "user_organization_kamu"
+		property "sonar.projectKey", "project_key_kamu"
+		property "sonar.organization", "org_kamu"
 		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.coverage.jacoco.xmlReportPaths", "${layout.buildDirectory.get()}/reports/jacoco/test/jacocoTestReport.xml"
 	}
 }
 
