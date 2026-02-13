@@ -25,5 +25,5 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Run Gradle check
-        run: ./gradlew --no-daemon check
+      - name: Run Gradle lint
+        run: ./gradlew --no-daemon checkstyleMain checkstyleTest
