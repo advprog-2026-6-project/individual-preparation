@@ -1,10 +1,9 @@
 package com.example.individualprep.service;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class ArithmeticUtilityTest {
 
@@ -88,22 +87,21 @@ class ArithmeticUtilityTest {
     }
 
     // --- exponent() tests ---
-    // Note: exponent() is currently a TODO stub returning 0.0
     @Test
     void testExponentReturnsResult() {
         double result = arithmeticUtility.exponent(2.0, 3);
-        assertEquals(0.0, result);
+        assertEquals(8.0, result);
     }
 
     @Test
     void testExponentWithZeroExponent() {
         double result = arithmeticUtility.exponent(5.0, 0);
-        assertEquals(0.0, result);
+        assertEquals(1.0, result);
     }
 
     @Test
     void testExponentWithOneExponent() {
         double result = arithmeticUtility.exponent(5.0, 1);
-        assertEquals(0.0, result);
+        assertEquals(5.0, result);
     }
 }
