@@ -87,7 +87,7 @@ class VectorUtilityTest {
         double[] v1 = {1.0, 2.0, 3.0};
         double[] v2 = {4.0, 5.0, 6.0};
         double result = vectorUtility.dotProduct(v1, v2);
-        assertEquals(0.0, result);
+        assertEquals(32.0, result);
     }
 
     @Test
