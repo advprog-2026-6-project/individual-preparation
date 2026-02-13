@@ -45,3 +45,27 @@ jobs:
 
       - name: Run Gradle check
         run: ./gradlew --no-daemon check
+
+  sonar:
+    needs: unit_test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Run sonar analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.organization=advprog-2026-6-project -Dsonar.projectKey=advprog-2026-6-project_individual-preparation
+
+      - name: Fail CI if quality gate fails
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          organization: advprog-2026-6-project
+          token: ${{ secrets.SONAR_TOKEN }}
