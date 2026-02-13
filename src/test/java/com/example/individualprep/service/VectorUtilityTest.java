@@ -1,11 +1,10 @@
 package com.example.individualprep.service;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class VectorUtilityTest {
 
@@ -99,22 +98,24 @@ class VectorUtilityTest {
     }
 
     // --- norm() tests ---
-    // Note: norm() is currently a TODO stub returning 0.0
     @Test
     void testNorm() {
         double[] v1 = {3.0, 4.0};
-        assertEquals(0.0, vectorUtility.norm(v1));
+        double[] expected = {0.6, 0.8};
+        assertArrayEquals(expected, vectorUtility.norm(v1), 0.0001);
     }
 
     @Test
     void testNormZeroVector() {
         double[] v1 = {0.0, 0.0, 0.0};
-        assertEquals(0.0, vectorUtility.norm(v1));
+        double[] expected = {0.0, 0.0, 0.0};
+        assertArrayEquals(expected, vectorUtility.norm(v1));
     }
 
     @Test
     void testNormUnitVector() {
         double[] v1 = {1.0, 0.0, 0.0};
-        assertEquals(0.0, vectorUtility.norm(v1));
+        double[] expected = {1.0, 0.0, 0.0};
+        assertArrayEquals(expected, vectorUtility.norm(v1));
     }
 }

@@ -89,12 +89,13 @@ class VectorControllerTest {
     @Test
     void testNorm() throws Exception {
         when(vectorUtility.norm(any(double[].class)))
-            .thenReturn(5.0);
+            .thenReturn(new double[]{0.6, 0.8});
 
         mockMvc.perform(post("/api/vector/norm")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"vector1\": [3,4]}"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.scalarResult").value(5.0));
+            .andExpect(jsonPath("$.result[0]").value(0.6))
+            .andExpect(jsonPath("$.result[1]").value(0.8));
     }
 }
