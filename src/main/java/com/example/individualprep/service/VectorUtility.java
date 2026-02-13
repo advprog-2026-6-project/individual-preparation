@@ -42,8 +42,23 @@ public class VectorUtility {
         return 0.0;
     }
     
-    public double norm(double[] v1) {
-        // TODO: Implement me properly!
-        return 0.0;
+    public double[] norm(double[] v1) {
+        double magnitude = 0;
+
+        for (double component : v1) {
+            magnitude += component * component;
+        }
+        magnitude = Math.sqrt(magnitude);
+
+        if (magnitude == 0.0) {
+            return new double[v1.length];
+        }
+
+        double[] normalisedVector = new double[v1.length];
+        for (int i = 0; i < v1.length; i++) {
+            normalisedVector[i] = v1[i] / magnitude;
+        }
+
+        return normalisedVector;
     }
 }

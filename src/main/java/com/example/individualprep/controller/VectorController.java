@@ -47,7 +47,7 @@ public class VectorController {
 
     @PostMapping("/norm")
     public ResponseEntity<VectorResponse> norm(@RequestBody VectorRequest request) {
-        double result = vectorUtility.norm(request.vector1());
+        double[] result = vectorUtility.norm(request.vector1());
         return ResponseEntity.ok(new VectorResponse(result));
     }
 }
