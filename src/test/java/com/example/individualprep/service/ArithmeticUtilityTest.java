@@ -39,19 +39,19 @@ class ArithmeticUtilityTest {
     @Test
     void testSubtractReturnsResult() {
         double result = arithmeticUtility.subtract(5.0, 3.0);
-        assertEquals(0.0, result);
+        assertEquals(2.0, result);
     }
 
     @Test
     void testSubtractWithNegativeNumbers() {
         double result = arithmeticUtility.subtract(-2.0, -3.0);
-        assertEquals(0.0, result);
+        assertEquals(1.0, result);
     }
 
     @Test
     void testSubtractWithZero() {
         double result = arithmeticUtility.subtract(3.0, 0.0);
-        assertEquals(0.0, result);
+        assertEquals(3.0, result);
     }
 
     // --- multiply() tests ---
