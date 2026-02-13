@@ -59,13 +59,12 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Run sonar analysis
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.organization=advprog-2026-6-project -Dsonar.projectKey=advprog-2026-6-project_individual-preparation
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
-      - name: Fail CI if quality gate fails
+      - name: Run sonarcloud scanner
         uses: SonarSource/sonarcloud-github-action@master
         with:
           organization: advprog-2026-6-project
           token: ${{ secrets.SONAR_TOKEN }}
+          projectKey: advprog-2026-6-project_individual-preparation
