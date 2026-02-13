@@ -46,10 +46,10 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Tests and Sonar Scan
-        run: ./gradlew clean test jacocoTestReport sonar --info
+        run: ./gradlew clean test sonar --info
 
       - name: Run Tests and Sonar Scan
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew test jacocoTestReport sonar --info
+        run: ./gradlew test sonar --info
