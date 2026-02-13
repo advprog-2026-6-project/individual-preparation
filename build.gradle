@@ -23,7 +23,7 @@ jacocoTestReport {
 	}
 }
 
-ssonar {
+sonar {
 	properties {
 		property "sonar.projectKey", "project_key_kamu"
 		property "sonar.organization", "org_kamu"
